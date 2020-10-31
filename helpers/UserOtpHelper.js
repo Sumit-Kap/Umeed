@@ -2,7 +2,9 @@
 
 let UserOtpHelper = {
     generateOtpHelper:function(){
-        let date = new Date().getTime();
+        let getOtp = new Date().getTime().toString();
+        let otpString = getOtp.substring(getOtp.length-6,getOtp.length);
+        return otpString;
     }
 };
 
