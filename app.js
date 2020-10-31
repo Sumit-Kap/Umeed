@@ -6,6 +6,7 @@ process.env.PORT = process.env.PORT || 3000;
 const express = require('express');
 const cors = require('cors');    // used for enabling cors cross origin policy
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 var app = express();
 app.use(cors()); // setting it to allow-access-origin: * which means request can originate from any domain
