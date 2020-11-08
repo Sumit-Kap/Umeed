@@ -13,9 +13,9 @@ app.use(cors()); // setting it to allow-access-origin: * which means request can
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 require('./routes')(app);
-require('./models');
-require('./schemas');
-require('./helpers');
+// require('./schemas')(app);
+// require('./models')(app);
+// require('./helpers')(app);
 
 // app._router.stack.forEach(function (routeObject) {
 //   if (!routeObject || !routeObject.route || !routeObject.route.path || routeObject.route.path === '*') return;

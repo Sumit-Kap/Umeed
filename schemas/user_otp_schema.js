@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require('../db');
 
 const Schema = mongoose.Schema;
 
 var UserOtpSchema = new Schema({
-    mobile_number: {type: Number,required:true},
-    otp: {type:Number,required:true}
+    mobile_number: {type: String,required:true},
+    otp: {type:String,required:true}
 },{timestamps:true});
 
 UserOtpSchema.index({mobile_number:1,created_at:-1});

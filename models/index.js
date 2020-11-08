@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function() {
+module.exports = {
     UserAuthenticationModels:require('./user_authentication_model')
 };
