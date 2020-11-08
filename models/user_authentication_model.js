@@ -21,18 +21,28 @@ let UserAuthenticationModels = {
             }
             return cb(null,generateOtp);
         })
-    //     const accountSid = Config.twilio_account_sid;
-    //     const authToken = Config.twilio_auth_token;
-    //     const client = require('twilio')(accountSid, authToken);
+        const accountSid = Config.twilio_account_sid;
+        const authToken = Config.twilio_auth_token;
+        const client = require('twilio')(accountSid, authToken);
 
-    //     client.messages
-    //         .create({
-    //         body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
-    //         from: '+919675989929',
-    //         to: phn_number
-    //     })
-    //     .then(message => console.log(message.sid)).catch((err) => console.log(err));
-        // return generateOtp;
+        client.messages
+            .create({
+            body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+            from: '+917983344157',
+            to: phn_number
+        })
+        .then(message => console.log(message.sid)).catch((err) => console.log(err));
+        return generateOtp;
+    },
+    validateOtp:function(userOtp,ph_number,cb){
+        let user = new UserOtpSchema();
+        UserOtpSchema.findOne({otp:userOtp,mobile_number:ph_number},(err,response)=>{
+            if(err || !response){
+                console.log('unable to find any otp associated with the number',ph_number,err,response);
+                cb(err,false);
+            }
+            cb(null,true);
+        })
     }
 }
 
